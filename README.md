@@ -1,43 +1,49 @@
-Object Detection is a computer vision technique that involves identifying and localizing objects of interest within an image or video frame. It outputs bounding boxes, class labels, and confidence scores for each detected object.
+The Language Translation Tool is a Natural Language Processing (NLP) application that performs automatic machine translation between human languages using Transformer-based deep learning models.
 
-Key Models Used:
+🧠 Core Concept: Neural Machine Translation (NMT)
 
-YOLO (You Only Look Once): Real-time, single-pass detection model.
+The project uses Neural Machine Translation, which maps input text from a source language to a target language using deep neural networks.
 
-Faster R-CNN: Two-stage detector with high accuracy.
+Unlike phrase-based models, NMT handles contextual translation and learns linguistic structure directly from large parallel corpora.
 
-SSD (Single Shot Detector): Efficient single-stage alternative.
+⚙️ Model Architecture: Transformer
 
-Each model uses deep convolutional neural networks (CNNs) to extract spatial features and classify objects.
+The system uses Transformer architecture with an encoder-decoder structure:
 
-Object Tracking extends detection by assigning a consistent ID to each detected object across multiple video frames, enabling the system to track their trajectory over time.
+Encoder processes input text and converts it into a context-rich representation.
 
-Tracking Techniques:
+Decoder generates the translated sentence from that representation.
 
-SORT (Simple Online Realtime Tracking): Uses Kalman filters + Hungarian Algorithm.
+Pre-trained models such as:
 
-Deep SORT: Adds a re-identification model for more robust tracking based on appearance features.
+MarianMT (Helsinki-NLP models)
+
+T5 (Text-to-Text Transfer Transformer)are used via the Hugging Face Transformers library.
 
 📶 Workflow Pipeline
 
-Frame Capture: Video frames extracted via OpenCV or video stream.
+Input Text: User provides source language sentence.
 
-Object Detection: Each frame is passed through a detector (e.g., YOLOv5) to identify objects.
+Tokenization: Text is tokenized using a model-specific tokenizer.
 
-Feature Extraction (for Deep SORT): Appearance embeddings are generated for each detection.
+Model Inference: The Transformer model predicts token IDs for the target language.
 
-Tracking: Detections are linked over frames using motion + appearance cues.
+Decoding: The predicted tokens are converted back to readable text.
 
-Display: Bounding boxes with class names and unique IDs are overlaid on frames in real-time.
+Output: Translated sentence is displayed to the user.
 
-⚙️ Applications
+🧰 Technologies Used
 
-Autonomous vehicles
+Python
 
-Surveillance systems
+Hugging Face Transformers for model loading and inference
 
-Smart retail (customer movement)
+Tokenizers like AutoTokenizer, MarianTokenizer
 
-Sports analytics
+Streamlit / Flask for UI (optional)
 
-Robotics and UAV navigation
+🧠 Why It Works
+
+The Transformer’s self-attention mechanism helps capture dependencies between all words in a sentence.
+
+Pre-trained models are fine-tuned on multilingual datasets, allowing accurate translation even across complex language pairs.
